@@ -1,5 +1,6 @@
 package com.example.cooktails.di.modules
 
+import com.example.cooktails.DetailsFragment
 import com.example.cooktails.MainActivity
 import com.example.cooktails.MainFragment
 import dagger.Module
@@ -14,7 +15,7 @@ interface CocktailsModule {
     @ContributesAndroidInjector
     fun bindMainFragment(): MainFragment
 
-//    @ContributesAndroidInjector
-//    fun bindUserFragment(): UserFragment
+    @ContributesAndroidInjector
+    fun bindDetailsFragment(): DetailsFragment
 
 }

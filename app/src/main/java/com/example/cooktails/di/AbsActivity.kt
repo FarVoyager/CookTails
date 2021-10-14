@@ -24,9 +24,9 @@ abstract class AbsActivity(): MvpAppCompatActivity(), HasAndroidInjector {
     @Inject
     lateinit var androidInjector: DispatchingAndroidInjector<Any>
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
-        super.onCreate(savedInstanceState, persistentState)
+        super.onCreate(savedInstanceState)
     }
 
     override fun androidInjector(): AndroidInjector<Any> {
