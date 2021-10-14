@@ -18,12 +18,10 @@ class MainActivity : AbsActivity(), ActivityView {
     private val navigator = AppNavigator(this, android.R.id.content)
     private val presenter by moxyPresenter { ActivityPresenter(router, androidScreens) }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         savedInstanceState ?: router.newRootScreen(MainScreen)
     }
-
 
     override fun onResumeFragments() {
         super.onResumeFragments()

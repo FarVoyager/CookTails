@@ -1,5 +1,6 @@
 package com.example.cooktails.di.modules
 
+import com.example.cooktails.model.ApiInterceptor
 import com.example.cooktails.model.IDataSource
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
@@ -22,16 +23,18 @@ class ApiModule {
         Retrofit.Builder()
             .baseUrl("https://the-cocktail-db.p.rapidapi.com")
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(
+                GsonBuilder().excludeFieldsWithoutExposeAnnotation().create())
+            )
             .client(OkHttpClient.Builder()
+                .addInterceptor(ApiInterceptor)
                 .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
                 .build()
             )
             .build()
             .create(IDataSource::class.java)
 
-    private val gson = GsonBuilder()
-        .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-        .excludeFieldsWithoutExposeAnnotation()
-        .create()
+//    private val gson = GsonBuilder()
+//        .excludeFieldsWithoutExposeAnnotation()
+//        .create()
 }

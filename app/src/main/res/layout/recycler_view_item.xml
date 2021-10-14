@@ -5,7 +5,7 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:id="@+id/recycler_item_image_view"
+        android:id="@+id/recyclerItem_imageView"
         android:layout_width="150dp"
         android:layout_height="match_parent"
         android:contentDescription="@string/image" />
@@ -16,12 +16,28 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/textView_name"
             android:layout_width="match_parent"
             android:layout_height="30dp"/>
-        <TextView
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"/>
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/textView_category"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="30dp"/>
+            <TextView
+                android:id="@+id/textView_alcoholic"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="30dp"/>
+        </LinearLayout>
+
         <TextView
+            android:id="@+id/textView_recipe"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
