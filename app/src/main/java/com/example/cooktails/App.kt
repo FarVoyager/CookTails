@@ -1,6 +1,6 @@
 package com.example.cooktails
 
-import android.app.Application
+//подключил делегат viewBinding для mainActivity
 import com.example.cooktails.di.DaggerAppComponent
 import com.github.terrakok.cicerone.Cicerone
 import dagger.android.AndroidInjector
