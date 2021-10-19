@@ -1,7 +1,7 @@
 package com.example.cooktails.di
 
 import android.content.Context
-import com.example.cooktails.App
+import com.example.cooktails.mainActivity.App
 import com.example.cooktails.di.modules.ApiModule
 import com.example.cooktails.di.modules.CocktailsModule
 import com.example.cooktails.di.modules.ScreensModule

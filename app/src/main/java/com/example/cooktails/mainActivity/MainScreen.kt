@@ -1,8 +1,8 @@
-package com.example.cooktails.view
+package com.example.cooktails.mainActivity
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
-import com.example.cooktails.MainFragment
+import com.example.cooktails.mainFragment.MainFragment
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 
 object MainScreen: FragmentScreen {

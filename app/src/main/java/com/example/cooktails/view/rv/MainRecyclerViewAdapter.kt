@@ -46,8 +46,8 @@ class MainRecyclerViewAdapter(val presenter: IListPresenter.IMainListPresenter, 
             binding.textViewAlcoholic.text = text
         }
 
-        override fun setRecipe(text: String) {
-            binding.textViewRecipe.text = text
+        override fun setGlass(text: String) {
+            binding.textViewGlass.text = text
         }
     }
 

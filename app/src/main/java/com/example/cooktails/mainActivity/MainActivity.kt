@@ -1,15 +1,7 @@
-package com.example.cooktails
+package com.example.cooktails.mainActivity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
-import by.kirich1409.viewbindingdelegate.viewBinding
-import com.example.cooktails.databinding.ActivityMainBinding
 import com.example.cooktails.di.AbsActivity
-import com.example.cooktails.presenter.ActivityPresenter
-import com.example.cooktails.view.ActivityView
-import com.example.cooktails.view.BackButtonListener
-import com.example.cooktails.view.MainScreen
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import moxy.ktx.moxyPresenter
 

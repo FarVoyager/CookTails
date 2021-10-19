@@ -3,4 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="details_header">Cocktail Name</string>
     <string name="image">image</string>
+    <string name="type">Type:</string>
+    <string name="alcohol">Alcohol:</string>
+    <string name="glass">Glass:</string>
 </resources>

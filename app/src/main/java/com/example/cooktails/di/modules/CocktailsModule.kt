@@ -1,8 +1,8 @@
 package com.example.cooktails.di.modules
 
-import com.example.cooktails.DetailsFragment
-import com.example.cooktails.MainActivity
-import com.example.cooktails.MainFragment
+import com.example.cooktails.detailsFragment.DetailsFragment
+import com.example.cooktails.mainActivity.MainActivity
+import com.example.cooktails.mainFragment.MainFragment
 import com.example.cooktails.model.CocktailsRepo
 import com.example.cooktails.model.ICocktailsRepo
 import dagger.Binds

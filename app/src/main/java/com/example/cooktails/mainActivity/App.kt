@@ -1,4 +1,4 @@
-package com.example.cooktails
+package com.example.cooktails.mainActivity
 
 import com.example.cooktails.di.DaggerAppComponent
 import com.github.terrakok.cicerone.Cicerone

@@ -1,8 +1,11 @@
-package com.example.cooktails.view
+package com.example.cooktails.mainFragment
 
 import moxy.MvpView
 import moxy.viewstate.strategy.AddToEndSingleStrategy
 import moxy.viewstate.strategy.StateStrategyType
 
 @StateStrategyType(AddToEndSingleStrategy::class)
-interface ActivityView: MvpView
+interface MainView: MvpView {
+    fun init()
+    fun updateList()
+}

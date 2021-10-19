@@ -1,7 +1,7 @@
-package com.example.cooktails.presenter
+package com.example.cooktails.mainActivity
 
 import com.example.cooktails.screens.IScreens
-import com.example.cooktails.view.ActivityView
+import com.example.cooktails.mainActivity.ActivityView
 import com.github.terrakok.cicerone.Router
 import moxy.MvpPresenter
 

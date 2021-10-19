@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainFragment">
+    tools:context=".mainFragment.MainFragment">
 
     <SearchView
         android:id="@+id/search_view"
@@ -17,7 +17,7 @@
         android:id="@+id/main_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/general_margin"
+        android:layout_marginTop="@dimen/general_margin"
         />
 
 

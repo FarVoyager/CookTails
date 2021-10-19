@@ -1,6 +1,6 @@
 package com.example.cooktails.screens
 
-import com.example.cooktails.MainFragment
+import com.example.cooktails.mainFragment.MainFragment
 import com.github.terrakok.cicerone.Screen
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import javax.inject.Inject

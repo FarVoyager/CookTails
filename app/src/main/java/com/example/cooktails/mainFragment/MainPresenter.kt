@@ -1,10 +1,9 @@
-package com.example.cooktails.presenter
+package com.example.cooktails.mainFragment
 
 import com.example.cooktails.model.Cocktail
 import com.example.cooktails.model.ICocktailsRepo
 import com.example.cooktails.view.rv.IListPresenter
 import com.example.cooktails.view.rv.MainItemView
-import com.example.cooktails.view.rv.MainView
 import com.github.terrakok.cicerone.Router
 import io.reactivex.rxjava3.core.Scheduler
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -30,7 +29,7 @@ class MainPresenter(
             cocktail.imageUrl?.let { view.setImage(it) }
             cocktail.category?.let { view.setCategory(it) }
             cocktail.alcoholic?.let { view.setAlcoholic(it) }
-            cocktail.recipe?.let { view.setRecipe(it) }
+            cocktail.glass?.let { view.setGlass(it) }
         }
 
         override fun getCount(): Int {

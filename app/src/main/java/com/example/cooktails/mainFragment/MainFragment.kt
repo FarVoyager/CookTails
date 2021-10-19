@@ -1,20 +1,16 @@
-package com.example.cooktails
+package com.example.cooktails.mainFragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.cooktails.databinding.FragmentMainBinding
 import com.example.cooktails.di.AbsFragment
 import com.example.cooktails.model.CocktailsRepo
-import com.example.cooktails.presenter.MainPresenter
-import com.example.cooktails.view.BackButtonListener
+import com.example.cooktails.mainActivity.BackButtonListener
 import com.example.cooktails.view.glide.GlideImageLoader
 import com.example.cooktails.view.rv.MainRecyclerViewAdapter
-import com.example.cooktails.view.rv.MainView
 import moxy.ktx.moxyPresenter
 import javax.inject.Inject
 

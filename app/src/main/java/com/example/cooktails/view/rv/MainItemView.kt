@@ -5,5 +5,5 @@ interface MainItemView: IMainItemView {
     fun setImage(url: String)
     fun setCategory(text: String)
     fun setAlcoholic(text: String)
-    fun setRecipe(text: String)
+    fun setGlass(text: String)
 }

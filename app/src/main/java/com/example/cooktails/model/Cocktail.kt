@@ -12,7 +12,9 @@ data class Cocktail(
     @Expose @SerializedName("strDrinkThumb") val imageUrl: String? = null,
     @Expose @SerializedName("strCategory") val category: String? = null,
     @Expose @SerializedName("strAlcoholic") val alcoholic: String? = null,
+    @Expose @SerializedName("strGlass") val glass: String? = null,
     @Expose @SerializedName("strInstructions") val recipe: String? = null,
+
 
     @Expose val strIngredient1: String? = null,
     @Expose val strIngredient2: String? = null,
