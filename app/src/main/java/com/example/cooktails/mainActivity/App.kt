@@ -1,6 +1,7 @@
 package com.example.cooktails.mainActivity
 
 import com.example.cooktails.di.DaggerAppComponent
+import com.example.cooktails.view.glide.GlideImageLoader
 import com.github.terrakok.cicerone.Cicerone
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
@@ -19,6 +20,7 @@ class App : DaggerApplication() {
                 withRouter(cicerone.router)
                 withNavigatorHolder(cicerone.getNavigatorHolder())
                 withScheduler(AndroidSchedulers.mainThread())
+                withGlideImageLoader(GlideImageLoader())
             }
             .build()
 

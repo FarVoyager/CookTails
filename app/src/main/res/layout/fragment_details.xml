@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container_details"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailsFragment">
+    tools:context=".detailsFragment.DetailsFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -15,9 +16,10 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/textViewDetails_name"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_margin="@dimen/general_margin"
+                android:layout_marginTop="@dimen/general_margin"
                 android:text="@string/details_header"
                 android:textAlignment="center"
                 android:gravity="center"
@@ -25,16 +27,144 @@
                 />
 
             <ImageView
+                android:id="@+id/details_imageView"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_margin="@dimen/general_margin"
+                android:layout_height="wrap_content"
                 />
 
-            <TextView
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_margin="@dimen/general_margin"
-                android:text="Content Description"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/rv_item_default_text_view_height"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="3"
+                        android:text="@string/type"
+                        android:textSize="18sp"
+                        android:maxLines="1"
+                        android:textStyle="bold"
+                        android:gravity="center_vertical"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:id="@+id/textViewDetails_category"                android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:maxLines="1"
+                        android:gravity="center_vertical"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/rv_item_default_text_view_height"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="3"
+                        android:text="@string/alcohol"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:maxLines="1"
+                        android:gravity="center_vertical"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:id="@+id/textViewDetails_alcoholic"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:maxLines="1"
+                        android:gravity="center_vertical"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/rv_item_default_text_view_height"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="3"
+                        android:text="@string/glass"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:maxLines="1"
+                        android:gravity="center_vertical"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:id="@+id/textViewDetails_glass"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:maxLines="1"
+                        android:gravity="center_vertical"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:text="Ingredients:"
+                    android:textSize="18sp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/linear_layout_ingredients"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="2"
+                        />
+
+                    <LinearLayout
+                        android:id="@+id/linear_layout_measures"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:text="@string/how_to_do"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:id="@+id/textView_recipe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
                 />
 
         </LinearLayout>

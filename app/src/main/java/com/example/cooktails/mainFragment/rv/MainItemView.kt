@@ -1,4 +1,4 @@
-package com.example.cooktails.view.rv
+package com.example.cooktails.mainFragment.rv
 
 interface MainItemView: IMainItemView {
     fun setName(text: String)

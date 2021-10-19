@@ -2,8 +2,9 @@ package com.example.cooktails.mainFragment
 
 import com.example.cooktails.model.Cocktail
 import com.example.cooktails.model.ICocktailsRepo
-import com.example.cooktails.view.rv.IListPresenter
-import com.example.cooktails.view.rv.MainItemView
+import com.example.cooktails.mainFragment.rv.IListPresenter
+import com.example.cooktails.mainFragment.rv.MainItemView
+import com.example.cooktails.screens.AndroidScreens
 import com.github.terrakok.cicerone.Router
 import io.reactivex.rxjava3.core.Scheduler
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -12,7 +13,8 @@ import moxy.MvpPresenter
 class MainPresenter(
     private val router: Router,
     private val cocktailsRepo: ICocktailsRepo,
-    private val uiScheduler: Scheduler
+    private val uiScheduler: Scheduler,
+    private val screens: AndroidScreens
 
 ): MvpPresenter<MainView>() {
 
@@ -43,7 +45,9 @@ class MainPresenter(
         super.onFirstViewAttach()
         viewState.init()
         loadData()
-        //clickListener
+        mainListPresenter.itemClickListener = { itemView ->
+            router.navigateTo(screens.details(mainListPresenter.cocktailsList[itemView.pos]))
+        }
     }
 
     private fun loadData() {
@@ -55,7 +59,6 @@ class MainPresenter(
             .subscribe({
                 mainListPresenter.cocktailsList.clear()
                 it.response?.let { it1 -> mainListPresenter.cocktailsList.addAll(it1) }
-                println(mainListPresenter.cocktailsList.size.toString() + " BEB size")
                 viewState.updateList()
                 println("onSuccess")
             }, {

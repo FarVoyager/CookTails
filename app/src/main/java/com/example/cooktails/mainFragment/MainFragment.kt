@@ -5,33 +5,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import by.kirich1409.viewbindingdelegate.viewBinding
+import com.example.cooktails.R
 import com.example.cooktails.databinding.FragmentMainBinding
 import com.example.cooktails.di.AbsFragment
 import com.example.cooktails.model.CocktailsRepo
 import com.example.cooktails.mainActivity.BackButtonListener
 import com.example.cooktails.view.glide.GlideImageLoader
-import com.example.cooktails.view.rv.MainRecyclerViewAdapter
+import com.example.cooktails.mainFragment.rv.MainRecyclerViewAdapter
 import moxy.ktx.moxyPresenter
 import javax.inject.Inject
 
 
-class MainFragment : AbsFragment(), MainView, BackButtonListener {
+class MainFragment : AbsFragment(R.layout.fragment_main), MainView, BackButtonListener {
 
     @Inject
     lateinit var cocktailsRepo: CocktailsRepo
 
-    private var binding: FragmentMainBinding? = null
+    private val binding: FragmentMainBinding? by viewBinding()
     companion object { @JvmStatic fun newInstance() = MainFragment() }
     private val presenter by moxyPresenter {
-        MainPresenter(router, cocktailsRepo, scheduler)
+        MainPresenter(router, cocktailsRepo, scheduler, androidScreens)
     }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View = FragmentMainBinding.inflate(inflater, container, false)
-        .also{ binding = it }.root
 
     private var adapter: MainRecyclerViewAdapter? = null
 

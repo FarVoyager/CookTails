@@ -1,4 +1,4 @@
-package com.example.cooktails.view.rv
+package com.example.cooktails.mainFragment.rv
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cooktails.databinding.RecyclerViewItemBinding
 import com.example.cooktails.view.glide.IImageLoader
 
-class MainRecyclerViewAdapter(val presenter: IListPresenter.IMainListPresenter, val imageLoader: IImageLoader<ImageView>):
+class MainRecyclerViewAdapter(private val presenter: IListPresenter.IMainListPresenter, val imageLoader: IImageLoader<ImageView>):
     RecyclerView.Adapter<MainRecyclerViewAdapter.ViewHolderMain>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderMain {
