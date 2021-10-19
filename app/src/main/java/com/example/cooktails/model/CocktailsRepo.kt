@@ -5,7 +5,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
 class CocktailsRepo @Inject constructor(private val api: IDataSource) : ICocktailsRepo {
-    override fun getRandomCocktails(): Single<List<Cocktail>> {
+    override fun getRandomCocktails(): Single<RandomCocktailsResponse> {
         return api.getRandomCocktails().subscribeOn(Schedulers.io())
     }
 

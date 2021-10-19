@@ -55,7 +55,7 @@ class MainPresenter(
             .doOnSubscribe { d -> compositeDisposable.addAll(d) }
             .subscribe({
                 mainListPresenter.cocktailsList.clear()
-                mainListPresenter.cocktailsList.addAll(it)
+                it.response?.let { it1 -> mainListPresenter.cocktailsList.addAll(it1) }
                 println(mainListPresenter.cocktailsList.size.toString() + " BEB size")
                 viewState.updateList()
                 println("onSuccess")

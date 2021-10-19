@@ -6,7 +6,7 @@ import retrofit2.http.Path
 
 interface IDataSource {
     @GET("/randomselection.php")
-    fun getRandomCocktails(): Single<List<Cocktail>>
+    fun getRandomCocktails(): Single<RandomCocktailsResponse>
 
     @GET("/search.php?i={cocktailName}")
     fun getCocktailByName(@Path("cocktailName") cocktailName: String): Single<Cocktail>
