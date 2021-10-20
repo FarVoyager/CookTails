@@ -34,7 +34,4 @@ class ApiModule {
             .build()
             .create(IDataSource::class.java)
 
-//    private val gson = GsonBuilder()
-//        .excludeFieldsWithoutExposeAnnotation()
-//        .create()
 }
