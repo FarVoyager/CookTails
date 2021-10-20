@@ -54,11 +54,11 @@ class MainPresenter(
         val cocktailsRx =
             cocktailsRepo.getRandomCocktails()
         cocktailsRx
-            .observeOn(uiScheduler)
-            .doOnSubscribe { d -> compositeDisposable.addAll(d) }
-            .subscribe({
+            ?.observeOn(uiScheduler)
+            ?.doOnSubscribe { d -> compositeDisposable.addAll(d) }
+            ?.subscribe({
                 mainListPresenter.cocktailsList.clear()
-                it.response?.let { it1 -> mainListPresenter.cocktailsList.addAll(it1) }
+                it?.let { it1 -> mainListPresenter.cocktailsList.addAll(it1) }
                 viewState.updateList()
                 println("onSuccess")
             }, {
