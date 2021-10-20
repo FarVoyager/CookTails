@@ -7,16 +7,10 @@ import moxy.MvpPresenter
 class DetailsPresenter(
     private val router: Router,
     private val cocktail: Cocktail
-
 ) : MvpPresenter<DetailsView>() {
-
-//    private val listOfIngredients = mutableListOf<String>()
-//    private val listOfMeasures = mutableListOf<String>()
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-//        getIngredientsOfCocktail(cocktail)
-//        getMeasuresOfCocktail(cocktail)
         showDetailsInfo()
     }
 
@@ -30,12 +24,6 @@ class DetailsPresenter(
         viewState.showIngredients(getIngredientsOfCocktail(cocktail))
         viewState.showMeasures(getMeasuresOfCocktail(cocktail))
     }
-
-    fun backPressed(): Boolean {
-        router.exit()
-        return true
-    }
-
 
     private fun getIngredientsOfCocktail(cocktail: Cocktail): List<String> {
         val listOfIngredients = mutableListOf<String>()
@@ -89,4 +77,10 @@ class DetailsPresenter(
         addMeasureToList(cocktail.strMeasure15)
         return listOfMeasures
     }
+
+    fun backPressed(): Boolean {
+        router.exit()
+        return true
+    }
+
 }

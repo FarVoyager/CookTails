@@ -15,7 +15,6 @@ data class Cocktail(
     @Expose @SerializedName("strGlass") val glass: String? = null,
     @Expose @SerializedName("strInstructions") val recipe: String? = null,
 
-
     @Expose val strIngredient1: String? = null,
     @Expose val strIngredient2: String? = null,
     @Expose val strIngredient3: String? = null,
@@ -47,5 +46,4 @@ data class Cocktail(
     @Expose val strMeasure13: String? = null,
     @Expose val strMeasure14: String? = null,
     @Expose val strMeasure15: String? = null,
-
     ): Parcelable
