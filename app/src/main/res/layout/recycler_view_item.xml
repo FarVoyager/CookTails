@@ -6,20 +6,22 @@
 
     <ImageView
         android:id="@+id/recyclerItem_imageView"
-        android:layout_width="120dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="2"
         android:contentDescription="@string/image" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="10dp"
+        android:layout_weight="1"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView_name"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="@dimen/rv_item_default_text_view_height"
             android:textStyle="bold"
             android:gravity="center_vertical"
             android:maxLines="1"

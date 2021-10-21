@@ -7,17 +7,6 @@ import moxy.viewstate.strategy.StateStrategyType
 
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface DetailsView: MvpView {
-//    fun init(
-//        name: String?,
-//        imageUrl: String?,
-//        category: String?,
-//        alcoholic: String?,
-//        glass: String?,
-//        recipe: String?,
-//        ingredients: List<String>,
-//        measures: List<String>
-//    )
-
     fun showName(text: String?)
     fun showImage(url: String?)
     fun showCategory(text: String?)
@@ -26,6 +15,4 @@ interface DetailsView: MvpView {
     fun showRecipe(text: String?)
     fun showIngredients(ingredients: List<String>)
     fun showMeasures(measures: List<String>)
-
-
 }

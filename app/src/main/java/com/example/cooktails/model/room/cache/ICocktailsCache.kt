@@ -7,4 +7,5 @@ import io.reactivex.rxjava3.core.Single
 interface ICocktailsCache {
     fun getCachedCocktails(): Single<List<Cocktail>>
     fun insertCocktailsToCache(cocktails: List<RoomCocktail>)
+    fun clearAll()
 }

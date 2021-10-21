@@ -23,10 +23,4 @@ class App : DaggerApplication() {
                 withGlideImageLoader(GlideImageLoader())
             }
             .build()
-
-    override fun onCreate() {
-        super.onCreate()
-        RxJavaPlugins.setErrorHandler {  }
-    }
-
 }

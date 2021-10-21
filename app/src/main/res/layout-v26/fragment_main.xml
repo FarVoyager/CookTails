@@ -9,7 +9,7 @@
 
     <SearchView
         android:id="@+id/search_view"
-        android:layout_margin="@dimen/general_focused_margin"
+        android:layout_margin="10dp"
         android:tooltipText="Search..."
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -25,12 +25,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/browse"
-            android:textSize="@dimen/btn_text_size"
-            app:strokeColor="@color/btn_border_and_text_color"
-            android:textColor="@color/btn_border_and_text_color"
+            android:textSize="12sp"
+            app:strokeColor="#A6000000"
+            android:textColor="#A6000000"
             android:layout_weight="1"
-            android:layout_marginStart="@dimen/general_focused_margin"
-            android:layout_marginEnd="@dimen/general_small_margin"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             />
 
@@ -39,12 +39,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/_10_random"
-            android:textSize="@dimen/btn_text_size"
-            android:textColor="@color/btn_border_and_text_color"
-            app:strokeColor="@color/btn_border_and_text_color"
+            android:textSize="12sp"
+            android:textColor="#A6000000"
+            app:strokeColor="#A6000000"
             android:layout_weight="1"
-            android:layout_marginEnd="@dimen/general_small_margin"
-            android:layout_marginStart="@dimen/general_small_margin"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             />
 
@@ -53,12 +53,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/all_cocktails"
-            android:textSize="@dimen/btn_text_size"
-            android:textColor="@color/btn_border_and_text_color"
-            app:strokeColor="@color/btn_border_and_text_color"
+            android:textSize="12sp"
+            android:textColor="#A6000000"
+            app:strokeColor="#A6000000"
             android:layout_weight="1"
-            android:layout_marginEnd="@dimen/general_focused_margin"
-            android:layout_marginStart="@dimen/general_small_margin"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             />
 
@@ -74,8 +74,8 @@
             android:layout_height="wrap_content"
             android:text="@string/_10_random_cocktails"
             android:textAlignment="center"
-            android:textSize="@dimen/rv_header_text_size"
-            android:layout_margin="@dimen/general_small_margin"
+            android:textSize="24sp"
+            android:layout_margin="5dp"
             />
 
         <TextView
@@ -85,15 +85,19 @@
             android:text=""
             android:gravity="center"
             android:layout_gravity="end"
-            android:layout_marginEnd="@dimen/general_focused_margin"
+            android:layout_marginEnd="10dp"
             />
 
     </FrameLayout>
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/main_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/general_small_margin"
+        android:layout_marginTop="5dp"
         />
+
+
 </LinearLayout>
