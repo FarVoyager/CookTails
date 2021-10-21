@@ -36,4 +36,7 @@ interface CocktailDao {
 
     @Query("SELECT * FROM RoomCocktail WHERE name = :name")
     fun findByName(name: String): RoomCocktail?
+
+    @Query("DELETE FROM RoomCocktail")
+    fun deleteAll()
 }

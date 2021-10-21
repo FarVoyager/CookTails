@@ -21,7 +21,6 @@ const val COCKTAIL_KEY = "COCKTAIL_KEY"
 
 class DetailsFragment : AbsFragment(R.layout.fragment_details), DetailsView, BackButtonListener {
 
-
     private val presenter by moxyPresenter {
         DetailsPresenter(
             router,

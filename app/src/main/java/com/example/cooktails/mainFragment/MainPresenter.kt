@@ -8,6 +8,7 @@ import com.example.cooktails.screens.AndroidScreens
 import com.github.terrakok.cicerone.Router
 import io.reactivex.rxjava3.core.Scheduler
 import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import moxy.MvpPresenter
 
 class MainPresenter(
@@ -54,16 +55,57 @@ class MainPresenter(
         val cocktailsRx =
             cocktailsRepo.getRandomCocktails()
         cocktailsRx
-            ?.observeOn(uiScheduler)
-            ?.doOnSubscribe { d -> compositeDisposable.addAll(d) }
-            ?.subscribe({
+            .observeOn(uiScheduler)
+            .doOnSubscribe { d -> compositeDisposable.addAll(d) }
+            .subscribe({
                 mainListPresenter.cocktailsList.clear()
-                it?.let { it1 -> mainListPresenter.cocktailsList.addAll(it1) }
+                it.let { it1 -> mainListPresenter.cocktailsList.addAll(it1) }
+                println(mainListPresenter.cocktailsList.size.toString() + " BEB flag1")
+                viewState.updateRvListUnitsCount("${mainListPresenter.cocktailsList.size} ea")
                 viewState.updateList()
                 println("onSuccess")
             }, {
                 println("onError: ${it.message}")
             })
+    }
+
+
+    fun loadCocktailDatabase() {
+        val cachedCocktailsRx = cocktailsRepo.getCachedCocktails()
+        cachedCocktailsRx
+            .observeOn(uiScheduler)
+            .doOnSubscribe { d -> compositeDisposable.addAll(d) }
+            .subscribe({
+                mainListPresenter.cocktailsList.clear()
+                mainListPresenter.cocktailsList.addAll(it)
+                viewState.updateList()
+                viewState.updateRvListHeader("All cocktails")
+                viewState.updateRvListUnitsCount("${mainListPresenter.cocktailsList.size} ea")
+            }, {
+                println("onError: ${it.message}")
+            })
+    }
+
+    fun loadRandomCocktails() {
+        val cocktailsRx =
+            cocktailsRepo.getRandomCocktails()
+        cocktailsRx
+            .observeOn(uiScheduler)
+            .doOnSubscribe { d -> compositeDisposable.addAll(d) }
+            .subscribe({
+                mainListPresenter.cocktailsList.clear()
+                it.let { it1 -> mainListPresenter.cocktailsList.addAll(it1) }
+                viewState.updateList()
+                viewState.updateRvListHeader("10 random cocktails")
+                viewState.updateRvListUnitsCount("${mainListPresenter.cocktailsList.size} ea")
+                println("onSuccess")
+            }, {
+                println("onError: ${it.message}")
+            })
+    }
+
+    fun loadBrowsed() {
+        viewState.showToast("Work in progress")
     }
 
     fun backPressed(): Boolean {

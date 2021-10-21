@@ -8,4 +8,7 @@ import moxy.viewstate.strategy.StateStrategyType
 interface MainView: MvpView {
     fun init()
     fun updateList()
+    fun updateRvListHeader(text: String)
+    fun updateRvListUnitsCount(text: String)
+    fun showToast(text: String)
 }

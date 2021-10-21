@@ -29,11 +29,10 @@ class DetailsPresenter(
         val listOfIngredients = mutableListOf<String>()
 
         fun addIngredientToList(ingredient: String?) {
-            if (ingredient != null) {
+            if (ingredient != null && ingredient != "") {
                 listOfIngredients.add(ingredient)
             }
         }
-
         addIngredientToList(cocktail.strIngredient1)
         addIngredientToList(cocktail.strIngredient2)
         addIngredientToList(cocktail.strIngredient3)
@@ -50,16 +49,14 @@ class DetailsPresenter(
         addIngredientToList(cocktail.strIngredient14)
         addIngredientToList(cocktail.strIngredient15)
         return listOfIngredients
-
     }
 
     private fun getMeasuresOfCocktail(cocktail: Cocktail): List<String> {
         val listOfMeasures = mutableListOf<String>()
 
         fun addMeasureToList(measure: String?) {
-            if (measure != null) { listOfMeasures.add(measure) }
+            if (measure != null && measure != "") { listOfMeasures.add(measure) }
         }
-
         addMeasureToList(cocktail.strMeasure1)
         addMeasureToList(cocktail.strMeasure2)
         addMeasureToList(cocktail.strMeasure3)
@@ -82,5 +79,4 @@ class DetailsPresenter(
         router.exit()
         return true
     }
-
 }

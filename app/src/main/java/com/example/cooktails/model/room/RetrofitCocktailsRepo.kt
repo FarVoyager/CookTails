@@ -1,35 +1,94 @@
 package com.example.cooktails.model.room
 
-//Остановился здесь, получил список коктейлей с помощью ResponseConverter
-import androidx.room.Room
 import com.example.cooktails.model.Cocktail
 import com.example.cooktails.model.ICocktailsRepo
 import com.example.cooktails.model.IDataSource
-import com.example.cooktails.model.RandomCocktailsResponse
-import com.example.cooktails.model.room.cache.CocktailsCache
 import com.example.cooktails.model.room.cache.ICocktailsCache
-import com.example.cooktails.model.room.networkStatus.AndroidNetworkStatus
 import com.example.cooktails.model.room.networkStatus.INetworkStatus
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
-class RetrofitCocktailsRepo @Inject constructor (
+class RetrofitCocktailsRepo @Inject constructor(
     private val networkStatus: INetworkStatus,
     private val api: IDataSource,
     private val converter: IResponseConverter,
     private val cocktailsCache: ICocktailsCache
-        ): ICocktailsRepo {
+) : ICocktailsRepo {
+
+    override fun getCachedCocktails(): Single<List<Cocktail>> {
+        return cocktailsCache.getCachedCocktails().subscribeOn(Schedulers.io())
+    }
 
     override fun getRandomCocktails(): Single<List<Cocktail>> =
-        networkStatus.isOnlineSingle().flatMap {
-            isOnline ->
+        networkStatus.isOnlineSingle().flatMap { isOnline ->
             if (isOnline) {
-                converter.convertToList(api.getRandomCocktails())
+                converter.convertToSingleList(api.getRandomCocktails())
                     .flatMap { cocktails ->
                         Single.fromCallable {
                             val roomCocktails = cocktails.map { cocktail ->
-                                convertToRoom(cocktail) }
+                                convertToRoom(cocktail)
+                            }
+                            cocktailsCache.insertCocktailsToCache(roomCocktails)
+                            cocktails
+                        }
+                    }
+            } else {
+                println("Missing network connection, loading from local cache...")
+                cocktailsCache.getCachedCocktails()
+            }
+        }.subscribeOn(Schedulers.io())
+
+
+    override fun getCocktailByName(cocktailName: String): Single<List<Cocktail>> =
+        networkStatus.isOnlineSingle().flatMap { isOnline ->
+            if (isOnline) {
+                converter.convertToSingleList(api.getCocktailByName(cocktailName))
+                    .flatMap { cocktails ->
+                        Single.fromCallable {
+                            val roomCocktails = cocktails.map { cocktail ->
+                                convertToRoom(cocktail)
+                            }
+                            cocktailsCache.insertCocktailsToCache(roomCocktails)
+                            cocktails
+                        }
+                    }
+            } else {
+                println("Missing network connection, loading from local cache...")
+                cocktailsCache.getCachedCocktails()
+            }
+        }.subscribeOn(Schedulers.io())
+
+    override fun getCocktailsByIngredient(ingredient: String): Single<List<Cocktail>> =
+        networkStatus.isOnlineSingle().flatMap { isOnline ->
+            if (isOnline) {
+                converter.convertToSingleList(api.getCocktailsByIngredient(ingredient))
+                    .flatMap { cocktails ->
+                        Single.fromCallable {
+                            val roomCocktails = cocktails.map { cocktail ->
+                                convertToRoom(cocktail)
+                            }
+                            cocktailsCache.insertCocktailsToCache(roomCocktails)
+                            cocktails
+                        }
+                    }
+            } else {
+                println("Missing network connection, loading from local cache...")
+                cocktailsCache.getCachedCocktails()
+            }
+        }.subscribeOn(Schedulers.io())
+
+
+    override fun getOneRandomCocktail(): Single<List<Cocktail>> =
+        networkStatus.isOnlineSingle().flatMap { isOnline ->
+            if (isOnline) {
+                converter.convertToSingleList(api.getOneRandomCocktail())
+                    .flatMap { cocktails ->
+                        Single.fromCallable {
+                            val roomCocktails = cocktails.map { cocktail ->
+                                convertToRoom(cocktail)
+                            }
+                            cocktailsCache
                             cocktailsCache.insertCocktailsToCache(roomCocktails)
                             cocktails
                         }
@@ -80,20 +139,6 @@ class RetrofitCocktailsRepo @Inject constructor (
             cocktail.strMeasure13 ?: "",
             cocktail.strMeasure14 ?: "",
             cocktail.strMeasure15 ?: "",
-            )
-    }
-
-
-
-    override fun getCocktailByName(cocktailName: String): Single<Cocktail> {
-        TODO("Not yet implemented")
-    }
-
-    override fun getCocktailsByIngredient(ingredient: String): Single<List<Cocktail>> {
-        TODO("Not yet implemented")
-    }
-
-    override fun getOneRandomCocktail(): Single<Cocktail> {
-        TODO("Not yet implemented")
+        )
     }
 }

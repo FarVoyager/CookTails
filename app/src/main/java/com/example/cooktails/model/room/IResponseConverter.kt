@@ -5,5 +5,5 @@ import com.example.cooktails.model.RandomCocktailsResponse
 import io.reactivex.rxjava3.core.Single
 
 interface IResponseConverter {
-    fun convertToList(receivedObject: Single<RandomCocktailsResponse>): Single<List<Cocktail>>
+    fun convertToSingleList(receivedObject: Single<RandomCocktailsResponse>): Single<List<Cocktail>>
 }

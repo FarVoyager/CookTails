@@ -17,7 +17,6 @@ class MainRecyclerViewAdapter(private val presenter: IListPresenter.IMainListPre
         return viewHolder
     }
 
-
     override fun onBindViewHolder(holder: ViewHolderMain, position: Int) {
         presenter.bindView(holder.apply { pos = position })
     }

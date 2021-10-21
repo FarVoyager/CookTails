@@ -7,4 +7,8 @@
     <string name="alcohol">Alcohol:</string>
     <string name="glass">Glass:</string>
     <string name="how_to_do">How to do:</string>
+    <string name="_10_random_cocktails">10 random cocktails</string>
+    <string name="all_cocktails">All Cocktails</string>
+    <string name="_10_random">10 Random</string>
+    <string name="browse">Browse</string>
 </resources>

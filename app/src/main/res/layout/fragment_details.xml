@@ -18,12 +18,12 @@
             <TextView
                 android:id="@+id/textViewDetails_name"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/details_fragment_header_height"
                 android:layout_marginTop="@dimen/general_margin"
                 android:text="@string/details_header"
                 android:textAlignment="center"
                 android:gravity="center"
-                android:textSize="24sp"
+                android:textSize="@dimen/details_fragment_header_text_size"
                 />
 
             <ImageView
@@ -37,9 +37,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="@dimen/general_focused_margin"
+                android:layout_marginEnd="@dimen/general_focused_margin"
+                android:layout_marginTop="@dimen/general_focused_margin"
                 android:orientation="vertical">
 
 
@@ -51,7 +51,7 @@
                         android:layout_width="match_parent"
                         android:layout_weight="3"
                         android:text="@string/type"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/details_mini_headers_font_size"
                         android:maxLines="1"
                         android:textStyle="bold"
                         android:gravity="center_vertical"
@@ -72,7 +72,7 @@
                         android:layout_width="match_parent"
                         android:layout_weight="3"
                         android:text="@string/alcohol"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/details_mini_headers_font_size"
                         android:textStyle="bold"
                         android:maxLines="1"
                         android:gravity="center_vertical"
@@ -94,7 +94,7 @@
                         android:layout_width="match_parent"
                         android:layout_weight="3"
                         android:text="@string/glass"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/details_mini_headers_font_size"
                         android:textStyle="bold"
                         android:maxLines="1"
                         android:gravity="center_vertical"
@@ -110,19 +110,19 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_height="@dimen/details_ingredients_header_height"
+                    android:layout_marginTop="@dimen/general_focused_margin"
                     android:textStyle="bold"
                     android:gravity="center_vertical"
                     android:text="Ingredients:"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/details_mini_headers_font_size"
                     />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="@dimen/general_focused_margin"
                     >
 
                     <LinearLayout
@@ -145,12 +145,12 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_height="@dimen/howToDo_header_height"
+                    android:layout_marginTop="@dimen/general_focused_margin"
                     android:textStyle="bold"
                     android:gravity="center_vertical"
                     android:text="@string/how_to_do"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/details_mini_headers_font_size"
                     />
 
                 <TextView
@@ -164,7 +164,7 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="@dimen/filler_height"
                 />
 
         </LinearLayout>

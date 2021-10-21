@@ -2,4 +2,14 @@
 <resources>
     <dimen name="general_margin">20dp</dimen>
     <dimen name="rv_item_default_text_view_height">25dp</dimen>
+    <dimen name="general_focused_margin">10dp</dimen>
+    <dimen name="filler_height">100dp</dimen>
+    <dimen name="details_fragment_header_height">40dp</dimen>
+    <dimen name="details_mini_headers_font_size">18sp</dimen>
+    <dimen name="details_ingredients_header_height">30dp</dimen>
+    <dimen name="howToDo_header_height">30dp</dimen>
+    <dimen name="details_fragment_header_text_size">24sp</dimen>
+    <dimen name="btn_text_size">12sp</dimen>
+    <dimen name="general_small_margin">5dp</dimen>
+    <dimen name="rv_header_text_size">24sp</dimen>
 </resources>
