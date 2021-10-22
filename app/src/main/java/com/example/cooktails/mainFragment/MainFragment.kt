@@ -3,6 +3,7 @@ package com.example.cooktails.mainFragment
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -30,9 +31,15 @@ class MainFragment : AbsFragment(R.layout.fragment_main), MainView, BackButtonLi
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding?.btnAll?.setOnClickListener { presenter.loadCocktailDatabase() }
         binding?.btnRandom?.setOnClickListener { presenter.loadRandomCocktails() }
         binding?.btnBrowse?.setOnClickListener { presenter.loadBrowsed() }
+
+        binding?.btnSearch?.setOnClickListener {
+            val searchQuery = binding?.searchView?.query.toString()
+            presenter.onSearchClicked(presenter.getSearchQuery(searchQuery))
+        }
     }
 
     private var adapter: MainRecyclerViewAdapter? = null
@@ -58,6 +65,19 @@ class MainFragment : AbsFragment(R.layout.fragment_main), MainView, BackButtonLi
 
     override fun showToast(text: String) {
         Toast.makeText(requireContext(), text, Toast.LENGTH_LONG).show()
+    }
+
+    override fun setSearchLayoutVisibility() {
+        val searchLayout = binding?.searchLayout
+        if (searchLayout?.visibility == View.GONE) {
+            searchLayout.visibility = View.VISIBLE
+        } else {
+            searchLayout?.visibility = View.GONE
+        }
+    }
+
+    override fun isNonAlcoholicChecked() {
+        binding?.nonAlcoholicCheckBox?.isChecked?.let { presenter.getNonAlcoholicCheck(it) }
     }
 
     override fun backPressed(): Boolean = presenter.backPressed()

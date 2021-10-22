@@ -20,6 +20,10 @@ class RetrofitCocktailsRepo @Inject constructor(
         return cocktailsCache.getCachedCocktails().subscribeOn(Schedulers.io())
     }
 
+    override fun getCachedCocktailsByIngredient(ingredient: String): Single<List<Cocktail>> {
+        return cocktailsCache.getCocktailsByIngredient(ingredient).subscribeOn(Schedulers.io())
+    }
+
     override fun getRandomCocktails(): Single<List<Cocktail>> =
         networkStatus.isOnlineSingle().flatMap { isOnline ->
             if (isOnline) {
