@@ -62,6 +62,7 @@ class MainPresenter(
             .subscribe({
                 mainListPresenter.cocktailsList.clear()
                 it.let { it1 -> mainListPresenter.cocktailsList.addAll(it1) }
+
                 viewState.updateRvListUnitsCount("${mainListPresenter.cocktailsList.size} ea")
                 viewState.updateList()
                 println("onSuccess")
@@ -79,7 +80,9 @@ class MainPresenter(
             .subscribe({
                 mainListPresenter.cocktailsList.clear()
                 mainListPresenter.cocktailsList.addAll(it)
+
                 setRvVisibility()
+
                 viewState.updateList()
                 viewState.updateRvListHeader("All cocktails")
                 viewState.updateRvListUnitsCount("${mainListPresenter.cocktailsList.size} ea")
@@ -97,6 +100,7 @@ class MainPresenter(
             .subscribe({
                 mainListPresenter.cocktailsList.clear()
                 it.let { it1 -> mainListPresenter.cocktailsList.addAll(it1) }
+
                 setRvVisibility()
                 viewState.updateList()
                 viewState.updateRvListHeader("10 random cocktails")
@@ -106,6 +110,7 @@ class MainPresenter(
                 println("onError: ${it.message}")
             })
     }
+
 
     fun getSearchQuery(query: String): String {
         return query
@@ -151,6 +156,7 @@ class MainPresenter(
         } else {
             mainListPresenter.cocktailsList.addAll(list)
         }
+
     }
 
     fun backPressed(): Boolean {

@@ -116,6 +116,7 @@ class CocktailsCache @Inject constructor(private val db: Database): ICocktailsCa
         return cocktailList
     }
 
+
     override fun clearAll() {
         db.cocktailDao.deleteAll()
     }

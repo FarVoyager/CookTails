@@ -81,6 +81,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="@dimen/general_small_margin"
+
         >
 
         <com.google.android.material.button.MaterialButton
@@ -88,12 +89,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/browse"
+
             android:textSize="@dimen/btn_text_size"
             android:layout_weight="1"
             app:strokeColor="@color/white"
             android:textColor="@color/white"
             android:layout_marginStart="@dimen/general_focused_margin"
             android:layout_marginEnd="@dimen/general_small_margin"
+
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             />
 
@@ -102,6 +105,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/_10_random"
+
             app:strokeColor="@color/white"
             android:textColor="@color/white"
 
@@ -109,6 +113,7 @@
             android:layout_weight="1"
             android:layout_marginEnd="@dimen/general_small_margin"
             android:layout_marginStart="@dimen/general_small_margin"
+
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             />
 
@@ -117,6 +122,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/all_cocktails"
+
             android:textSize="@dimen/btn_text_size"
             app:strokeColor="@color/white"
             android:textColor="@color/white"
@@ -124,6 +130,7 @@
             android:layout_weight="1"
             android:layout_marginEnd="@dimen/general_focused_margin"
             android:layout_marginStart="@dimen/general_small_margin"
+
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             />
 
@@ -131,8 +138,10 @@
 
     <FrameLayout
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
         >
+
 
         <TextView
             android:id="@+id/rv_list_header"
@@ -142,6 +151,7 @@
             android:textAlignment="center"
             android:textSize="@dimen/rv_header_text_size"
             android:layout_margin="@dimen/general_small_margin"
+
             />
 
         <TextView
@@ -153,6 +163,7 @@
             android:gravity="center"
             android:layout_gravity="end"
             android:layout_marginEnd="@dimen/general_focused_margin"
+
             />
 
     </FrameLayout>
@@ -182,6 +193,7 @@
             />
 
     </FrameLayout>
+
 
 
 </LinearLayout>

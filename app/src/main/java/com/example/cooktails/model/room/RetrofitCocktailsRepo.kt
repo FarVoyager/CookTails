@@ -20,9 +20,11 @@ class RetrofitCocktailsRepo @Inject constructor(
         return cocktailsCache.getCachedCocktails().subscribeOn(Schedulers.io())
     }
 
+
     override fun getCachedCocktailsByIngredient(ingredient: String): Single<List<Cocktail>> {
         return cocktailsCache.getCocktailsByIngredient(ingredient).subscribeOn(Schedulers.io())
     }
+
 
     override fun getRandomCocktails(): Single<List<Cocktail>> =
         networkStatus.isOnlineSingle().flatMap { isOnline ->
@@ -65,6 +67,7 @@ class RetrofitCocktailsRepo @Inject constructor(
 
     override fun getCocktailsByIngredient(ingredient: String): Single<List<Cocktail>> =
         networkStatus.isOnlineSingle().flatMap { isOnline ->
+
             if (isOnline) {
                 converter.convertToSingleList(api.getCocktailsByIngredient(ingredient))
                     .flatMap { cocktails ->
@@ -87,6 +90,7 @@ class RetrofitCocktailsRepo @Inject constructor(
         networkStatus.isOnlineSingle().flatMap { isOnline ->
             if (isOnline) {
                 converter.convertToSingleList(api.getOneRandomCocktail())
+
                     .flatMap { cocktails ->
                         Single.fromCallable {
                             val roomCocktails = cocktails.map { cocktail ->

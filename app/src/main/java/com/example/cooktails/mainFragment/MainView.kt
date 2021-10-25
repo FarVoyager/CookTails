@@ -12,8 +12,10 @@ interface MainView: MvpView {
     fun updateRvListHeader(text: String)
     fun updateRvListUnitsCount(text: String)
     fun showToast(text: String)
+
     fun setSearchLayoutVisibility()
     fun isNonAlcoholicChecked()
     fun updateRvVisibility(isListEmpty: Boolean)
     fun setBtnColor(button: MaterialButton? ,backgroundColor: Int, strokeColor: Int, textColor: Int)
+
 }

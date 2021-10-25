@@ -1,6 +1,7 @@
 package com.example.cooktails.mainFragment
 
 import android.annotation.SuppressLint
+
 import android.content.res.ColorStateList
 import android.os.Build
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.view.View
 import androidx.appcompat.widget.SearchView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.cooktails.R
@@ -17,6 +19,7 @@ import com.example.cooktails.mainActivity.BackButtonListener
 import com.example.cooktails.view.glide.GlideImageLoader
 import com.example.cooktails.mainFragment.rv.MainRecyclerViewAdapter
 import com.example.cooktails.model.room.RetrofitCocktailsRepo
+
 import com.google.android.material.button.MaterialButton
 import moxy.ktx.moxyPresenter
 import javax.inject.Inject
@@ -49,6 +52,7 @@ class MainFragment : AbsFragment(R.layout.fragment_main), MainView, BackButtonLi
                 showToast("Search field is empty")
             }
         }
+
     }
 
     private var adapter: MainRecyclerViewAdapter? = null
@@ -75,6 +79,7 @@ class MainFragment : AbsFragment(R.layout.fragment_main), MainView, BackButtonLi
     override fun showToast(text: String) {
         Toast.makeText(requireContext(), text, Toast.LENGTH_LONG).show()
     }
+
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun setSearchLayoutVisibility() {
@@ -110,6 +115,7 @@ class MainFragment : AbsFragment(R.layout.fragment_main), MainView, BackButtonLi
             setTextColor(resources.getColor(textColor, null))
         }
     }
+
 
     override fun backPressed(): Boolean = presenter.backPressed()
 

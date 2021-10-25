@@ -9,8 +9,10 @@
     android:background="?colorPrimary"
     tools:context=".mainFragment.MainFragment">
 
+
     <LinearLayout
         android:id="@+id/search_layout"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -81,6 +83,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="@dimen/general_small_margin"
+
         >
 
         <com.google.android.material.button.MaterialButton
@@ -89,9 +92,11 @@
             android:layout_height="wrap_content"
             android:text="@string/browse"
             android:textSize="@dimen/btn_text_size"
+
             android:layout_weight="1"
             app:strokeColor="@color/white"
             android:textColor="@color/white"
+
             android:layout_marginStart="@dimen/general_focused_margin"
             android:layout_marginEnd="@dimen/general_small_margin"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -102,10 +107,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/_10_random"
+
             app:strokeColor="@color/white"
             android:textColor="@color/white"
 
             android:textSize="@dimen/btn_text_size"
+
             android:layout_weight="1"
             android:layout_marginEnd="@dimen/general_small_margin"
             android:layout_marginStart="@dimen/general_small_margin"
@@ -118,8 +125,10 @@
             android:layout_height="wrap_content"
             android:text="@string/all_cocktails"
             android:textSize="@dimen/btn_text_size"
+
             app:strokeColor="@color/white"
             android:textColor="@color/white"
+
 
             android:layout_weight="1"
             android:layout_marginEnd="@dimen/general_focused_margin"
@@ -131,8 +140,10 @@
 
     <FrameLayout
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
         >
+
 
         <TextView
             android:id="@+id/rv_list_header"
@@ -149,7 +160,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text=""
+
             android:textColor="@color/white"
+
             android:gravity="center"
             android:layout_gravity="end"
             android:layout_marginEnd="@dimen/general_focused_margin"
@@ -161,6 +174,7 @@
         android:id="@+id/main_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
 
         android:layout_marginTop="@dimen/general_small_margin"
         />
