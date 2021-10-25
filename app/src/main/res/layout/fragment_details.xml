@@ -4,6 +4,8 @@
     android:id="@+id/container_details"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?colorPrimary"
+
     tools:context=".detailsFragment.DetailsFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -13,18 +15,28 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
-            <TextView
-                android:id="@+id/textViewDetails_name"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/details_fragment_header_height"
-                android:layout_marginTop="@dimen/general_margin"
-                android:text="@string/details_header"
-                android:textAlignment="center"
-                android:gravity="center"
-                android:textSize="@dimen/details_fragment_header_text_size"
-                />
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewDetails_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/details_header"
+                    android:layout_margin="@dimen/general_focused_margin"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/details_fragment_header_text_size"
+                    />
+
+            </LinearLayout>
+
+
 
             <ImageView
                 android:id="@+id/details_imageView"

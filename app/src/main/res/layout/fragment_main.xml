@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:animateLayoutChanges="true"
+    android:background="?colorPrimary"
     tools:context=".mainFragment.MainFragment">
 
     <LinearLayout
@@ -22,13 +23,16 @@
 
             >
 
-            <SearchView
+            <androidx.appcompat.widget.SearchView
                 android:id="@+id/search_view"
                 android:layout_margin="@dimen/general_focused_margin"
                 android:tooltipText="Search..."
                 android:layout_width="match_parent"
                 android:layout_weight="1"
-                android:layout_height="wrap_content" />
+
+                android:searchIcon="@drawable/ic_action_name"
+                android:layout_height="wrap_content"
+                style="@style/SearchViewStyle"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_search"
@@ -36,8 +40,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/general_focused_margin"
                 android:layout_weight="2.5"
+                app:strokeColor="@color/white"
+                android:textColor="@color/white"
                 android:textSize="@dimen/btn_text_size"
                 android:text="@string/search"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 />
 
         </LinearLayout>
@@ -54,6 +61,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/general_focused_margin"
                 android:textSize="@dimen/btn_text_size"
+                app:strokeColor="@color/white"
+                android:textColor="@color/white"
                 android:text="@string/only_non_alcoholic"
                 />
 
@@ -80,9 +89,9 @@
             android:layout_height="wrap_content"
             android:text="@string/browse"
             android:textSize="@dimen/btn_text_size"
-            app:strokeColor="@color/btn_border_and_text_color"
-            android:textColor="@color/btn_border_and_text_color"
             android:layout_weight="1"
+            app:strokeColor="@color/white"
+            android:textColor="@color/white"
             android:layout_marginStart="@dimen/general_focused_margin"
             android:layout_marginEnd="@dimen/general_small_margin"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -93,9 +102,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/_10_random"
+            app:strokeColor="@color/white"
+            android:textColor="@color/white"
+
             android:textSize="@dimen/btn_text_size"
-            android:textColor="@color/btn_border_and_text_color"
-            app:strokeColor="@color/btn_border_and_text_color"
             android:layout_weight="1"
             android:layout_marginEnd="@dimen/general_small_margin"
             android:layout_marginStart="@dimen/general_small_margin"
@@ -108,8 +118,9 @@
             android:layout_height="wrap_content"
             android:text="@string/all_cocktails"
             android:textSize="@dimen/btn_text_size"
-            android:textColor="@color/btn_border_and_text_color"
-            app:strokeColor="@color/btn_border_and_text_color"
+            app:strokeColor="@color/white"
+            android:textColor="@color/white"
+
             android:layout_weight="1"
             android:layout_marginEnd="@dimen/general_focused_margin"
             android:layout_marginStart="@dimen/general_small_margin"
@@ -120,7 +131,8 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
 
         <TextView
             android:id="@+id/rv_list_header"
@@ -137,6 +149,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text=""
+            android:textColor="@color/white"
             android:gravity="center"
             android:layout_gravity="end"
             android:layout_marginEnd="@dimen/general_focused_margin"
@@ -144,10 +157,31 @@
 
     </FrameLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/main_recycler_view"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/general_small_margin"
-        />
+        >
+
+        <TextView
+            android:id="@+id/textView_not_found"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:text="No usages found"
+            android:textColor="#9C9C9C"
+            android:visibility="gone"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/main_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:layout_marginTop="@dimen/general_small_margin"
+            />
+
+    </FrameLayout>
+
+
 </LinearLayout>
