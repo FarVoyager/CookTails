@@ -15,6 +15,10 @@ class CocktailsCache @Inject constructor(private val db: Database): ICocktailsCa
             }
         }
 
+    override fun getCocktailsByIngredient(ingredient: String): Single<List<Cocktail>> {
+        TODO("Not yet implemented")
+    }
+
     override fun insertCocktailsToCache(cocktails: List<RoomCocktail>) {
         db.cocktailDao.insert(cocktails)
     }
