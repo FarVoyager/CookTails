@@ -8,4 +8,7 @@ interface ICocktailsRepo {
     fun getCocktailsByIngredient(ingredient: String): Single<List<Cocktail>>
     fun getOneRandomCocktail(): Single<List<Cocktail>>
     fun getCachedCocktails(): Single<List<Cocktail>>
+
+    fun getCachedCocktailsByIngredient(ingredient: String): Single<List<Cocktail>>
+
 }

@@ -11,4 +11,7 @@
     <string name="all_cocktails">All Cocktails</string>
     <string name="_10_random">10 Random</string>
     <string name="browse">Browse</string>
+    <string name="only_non_alcoholic">Only non-alcoholic</string>
+    <string name="search">Search</string>
+
 </resources>

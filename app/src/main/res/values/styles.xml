@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="searchIcon">@drawable/ic_action_name</item>
+        <item name="closeIcon">@drawable/ic_action_close</item>
+        <item name="searchHintIcon">@null</item>
+    </style>
+
+</resources>

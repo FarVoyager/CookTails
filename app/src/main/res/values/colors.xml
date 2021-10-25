@@ -8,4 +8,25 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="btn_border_and_text_color">#A6000000</color>
+
+
+    <color name="colorPrimary">#455a64</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorBackground">#161C40</color>
+    <color name="colorBackgroundDark">#222222</color>
+
+    <color name="color_gray">#66000000</color>
+    <color name="bottomSheetBackground">#EAEAEA</color>
+    <color name="textColorDark">#EAEAEA</color>
+    <color name="textColor">#A1A1A1</color>
+
+    <color name="bottomSheetBackgroundDark">#151515</color>
+
+
+    <color name="primaryDarkColor">#2286c3</color>
+    <color name="primaryTextColor">#212121</color>
+    <color name="transparent">#001C1C1C</color>
+
+
 </resources>
