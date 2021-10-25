@@ -16,7 +16,12 @@ class CocktailsCache @Inject constructor(private val db: Database): ICocktailsCa
         }
 
     override fun getCocktailsByIngredient(ingredient: String): Single<List<Cocktail>> {
-        TODO("Not yet implemented")
+        return         Single.fromCallable {
+            db.cocktailDao.findByIngredient(ingredient).map {
+                    roomCocktail ->
+                getCocktail(roomCocktail)
+            }
+        }
     }
 
     override fun insertCocktailsToCache(cocktails: List<RoomCocktail>) {
