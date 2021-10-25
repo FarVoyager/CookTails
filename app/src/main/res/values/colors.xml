@@ -10,7 +10,7 @@
     <color name="btn_border_and_text_color">#A6000000</color>
 
 
-    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimary">#455a64</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorBackground">#161C40</color>
