@@ -110,6 +110,7 @@ class MainPresenter(
         return query
     }
 
+
     fun loadBrowsed() {
         viewState.setSearchLayoutVisibility()
     }
