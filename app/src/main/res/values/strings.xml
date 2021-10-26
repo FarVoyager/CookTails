@@ -13,4 +13,5 @@
     <string name="browse">Browse</string>
     <string name="only_non_alcoholic">Only non-alcoholic</string>
     <string name="search">Search</string>
+    <string name="no_usages_found">No usages found</string>
 </resources>
