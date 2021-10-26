@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/general_focused_margin"
                 android:textSize="@dimen/btn_text_size"
-                app:strokeColor="@color/white"
+                android:buttonTint="@color/white"
                 android:textColor="@color/white"
                 android:text="@string/only_non_alcoholic"
                 />

@@ -36,19 +36,21 @@ class MainFragment : AbsFragment(R.layout.fragment_main), MainView, BackButtonLi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //обработка нажатий стандартных кнопок
         binding?.btnAll?.setOnClickListener { presenter.loadCocktailDatabase() }
         binding?.btnRandom?.setOnClickListener { presenter.loadRandomCocktails() }
         binding?.btnBrowse?.setOnClickListener { presenter.loadBrowsed() }
 
-        SearchView(requireContext())
-        binding?.btnSearch?.setOnClickListener {
-            val searchQuery = binding?.searchView?.query.toString()
-            if (searchQuery.isNotEmpty()) {
-                presenter.onSearchClicked(presenter.getSearchQuery(searchQuery))
-            } else {
-                showToast("Search field is empty")
+        //обработка нажатий для SearchView
+        binding?.btnSearch?.setOnClickListener { searchQuery() }
+        binding?.searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                searchQuery()
+                return true
             }
-        }
+            override fun onQueryTextChange(newText: String?): Boolean = false
+        })
+
     }
 
     private var adapter: MainRecyclerViewAdapter? = null
@@ -72,7 +74,7 @@ class MainFragment : AbsFragment(R.layout.fragment_main), MainView, BackButtonLi
         binding?.textViewCocktailsCount?.text = text
     }
 
-    override fun showToast(text: String) {
+    private fun showToast(text: String) {
         Toast.makeText(requireContext(), text, Toast.LENGTH_LONG).show()
     }
 
@@ -99,6 +101,15 @@ class MainFragment : AbsFragment(R.layout.fragment_main), MainView, BackButtonLi
         } else {
             binding?.mainRecyclerView?.visibility = View.VISIBLE
             binding?.textViewNotFound?.visibility = View.GONE
+        }
+    }
+
+    private fun searchQuery() {
+        val searchQuery = binding?.searchView?.query.toString()
+        if (searchQuery.isNotEmpty()) {
+            presenter.onSearchClicked(presenter.getSearchQuery(searchQuery))
+        } else {
+            showToast("Search field is empty")
         }
     }
 
