@@ -15,6 +15,14 @@ class CocktailsCache @Inject constructor(private val db: Database): ICocktailsCa
             }
         }
 
+    override fun getRandomCachedCocktails(): Single<List<Cocktail>> =
+        Single.fromCallable {
+            db.cocktailDao.getRandomCocktails().map {
+                    roomCocktail ->
+                getCocktail(roomCocktail)
+            }
+        }
+
     override fun getCocktailsByIngredient(ingredient: String): Single<List<Cocktail>> {
         return         Single.fromCallable {
             db.cocktailDao.findByIngredient(ingredient).map {

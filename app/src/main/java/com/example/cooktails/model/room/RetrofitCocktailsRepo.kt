@@ -39,7 +39,7 @@ class RetrofitCocktailsRepo @Inject constructor(
                     }
             } else {
                 println("Missing network connection, loading from local cache...")
-                cocktailsCache.getCachedCocktails()
+                cocktailsCache.getRandomCachedCocktails()
             }
         }.subscribeOn(Schedulers.io())
 

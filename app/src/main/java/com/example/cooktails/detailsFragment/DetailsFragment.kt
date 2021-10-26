@@ -77,7 +77,7 @@ class DetailsFragment : AbsFragment(R.layout.fragment_details), DetailsView, Bac
                 AppCompatTextView(requireContext()).apply {
                     text = data[i]
                     gravity = Gravity.CENTER_VERTICAL
-                    height = 80
+                    height = 95
                     textSize = 14f
                 }
             )

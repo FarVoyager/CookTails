@@ -34,6 +34,9 @@ interface CocktailDao {
     @Query("SELECT * FROM RoomCocktail")
     fun getAll(): List<RoomCocktail>
 
+    @Query("SELECT * FROM RoomCocktail ORDER BY RANDOM() LIMIT 10")
+    fun getRandomCocktails(): List<RoomCocktail>
+
     @Query(FIND_BY_INGREDIENT_QUERY)
     fun findByIngredient(ingredient: String): List<RoomCocktail>
 
