@@ -11,7 +11,6 @@ interface MainView: MvpView {
     fun updateList()
     fun updateRvListHeader(text: String)
     fun updateRvListUnitsCount(text: String)
-    fun showToast(text: String)
     fun setSearchLayoutVisibility()
     fun isNonAlcoholicChecked()
     fun updateRvVisibility(isListEmpty: Boolean)

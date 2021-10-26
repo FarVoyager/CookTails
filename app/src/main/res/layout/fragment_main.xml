@@ -68,13 +68,7 @@
 
         </LinearLayout>
 
-
-
     </LinearLayout>
-
-
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -129,33 +123,44 @@
 
     </LinearLayout>
 
-    <FrameLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorPrimary"
+        android:elevation="10dp"
         >
 
-        <TextView
-            android:id="@+id/rv_list_header"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/_10_random_cocktails"
-            android:textAlignment="center"
-            android:textSize="@dimen/rv_header_text_size"
-            android:layout_margin="@dimen/general_small_margin"
-            />
+            >
 
-        <TextView
-            android:id="@+id/textView_cocktails_count"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text=""
-            android:textColor="@color/white"
-            android:gravity="center"
-            android:layout_gravity="end"
-            android:layout_marginEnd="@dimen/general_focused_margin"
-            />
+            <TextView
+                android:id="@+id/rv_list_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/_10_random_cocktails"
+                android:textAlignment="center"
+                android:textSize="@dimen/rv_header_text_size"
+                android:layout_margin="@dimen/general_small_margin"
+                />
 
-    </FrameLayout>
+            <TextView
+                android:id="@+id/textView_cocktails_count"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=""
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/general_focused_margin"
+                />
+
+        </FrameLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
 
     <FrameLayout
         android:layout_width="match_parent"
