@@ -79,7 +79,7 @@ class MainPresenter(
             .subscribe({
                 mainListPresenter.cocktailsList.clear()
                 mainListPresenter.cocktailsList.addAll(it)
-                setRvVisibility()
+                setRvVisibility(mainListPresenter.cocktailsList)
                 viewState.updateList()
                 viewState.updateRvListHeader("All cocktails")
                 viewState.updateRvListUnitsCount("${mainListPresenter.cocktailsList.size} ea")
@@ -97,7 +97,7 @@ class MainPresenter(
             .subscribe({
                 mainListPresenter.cocktailsList.clear()
                 it.let { it1 -> mainListPresenter.cocktailsList.addAll(it1) }
-                setRvVisibility()
+                setRvVisibility(mainListPresenter.cocktailsList)
                 viewState.updateList()
                 viewState.updateRvListHeader("10 random cocktails")
                 viewState.updateRvListUnitsCount("${mainListPresenter.cocktailsList.size} ea")
@@ -115,15 +115,15 @@ class MainPresenter(
         viewState.setSearchLayoutVisibility()
     }
 
-    fun onSearchClicked(query: String) {
-        val cachedCocktailsRx = cocktailsRepo.getCachedCocktailsByIngredient(query)
+    fun onSearchClicked(query: String?) {
+        val cachedCocktailsRx = cocktailsRepo.getCachedCocktailsByIngredient(query.toString())
         cachedCocktailsRx
             .observeOn(uiScheduler)
             .doOnSubscribe { d -> compositeDisposable.addAll(d) }
             .subscribe({
                 mainListPresenter.cocktailsList.clear()
                 fillList(it)
-                setRvVisibility()
+                setRvVisibility(mainListPresenter.cocktailsList)
                 viewState.updateList()
                 viewState.updateRvListHeader("Search results:")
                 viewState.updateRvListUnitsCount("${mainListPresenter.cocktailsList.size} ea")
@@ -137,19 +137,28 @@ class MainPresenter(
 
     }
 
-    private fun setRvVisibility() {
-        if (mainListPresenter.cocktailsList.size == 0) viewState.updateRvVisibility(true)
-        else viewState.updateRvVisibility(false)
+    fun setRvVisibility(list: List<Cocktail>): Boolean {
+        if (list.isEmpty()) {
+            viewState.updateRvVisibility(true)
+            return false
+        }
+        else {
+            viewState.updateRvVisibility(false)
+            return true
+        }
+
     }
 
-    private fun fillList(list: List<Cocktail>) {
+    private fun fillList(list: List<Cocktail>): Boolean {
         viewState.isNonAlcoholicChecked()
         if (isNonAlcoholicChecked) {
             for (i in list.indices) {
                 if ( list[i].alcoholic == "Non alcoholic") mainListPresenter.cocktailsList.add(list[i])
             }
+            return true
         } else {
             mainListPresenter.cocktailsList.addAll(list)
+            return false
         }
     }
 

@@ -1,6 +1,7 @@
 package com.example.cooktails.mainActivity
 
 import com.example.cooktails.di.DaggerAppComponent
+import com.example.cooktails.mainFragment.SearchQueryValidator
 import com.example.cooktails.model.room.Database
 import com.example.cooktails.view.glide.GlideImageLoader
 import com.github.terrakok.cicerone.Cicerone
@@ -21,6 +22,7 @@ class App : DaggerApplication() {
                 withNavigatorHolder(cicerone.getNavigatorHolder())
                 withScheduler(AndroidSchedulers.mainThread())
                 withGlideImageLoader(GlideImageLoader())
+                withSearchQueryValidator(SearchQueryValidator())
             }
             .build()
 }

@@ -42,10 +42,13 @@ class MainFragment : AbsFragment(R.layout.fragment_main), MainView, BackButtonLi
         binding?.btnBrowse?.setOnClickListener { presenter.loadBrowsed() }
 
         //обработка нажатий для SearchView
-        binding?.btnSearch?.setOnClickListener { searchQuery() }
+
+        binding?.btnSearch?.setOnClickListener {
+            searchQuery(binding?.searchView?.query.toString())
+        }
         binding?.searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                searchQuery()
+                searchQuery(binding?.searchView?.query.toString())
                 return true
             }
             override fun onQueryTextChange(newText: String?): Boolean = false
@@ -104,12 +107,11 @@ class MainFragment : AbsFragment(R.layout.fragment_main), MainView, BackButtonLi
         }
     }
 
-    private fun searchQuery() {
-        val searchQuery = binding?.searchView?.query.toString()
-        if (searchQuery.isNotEmpty()) {
-            presenter.onSearchClicked(presenter.getSearchQuery(searchQuery))
+    fun searchQuery(query: String?) {
+        if (searchQueryValidator.isValidQuery(query)) {
+            presenter.onSearchClicked(query)
         } else {
-            showToast("Search field is empty")
+            Toast.makeText(requireContext(), "Incorrect query text", Toast.LENGTH_SHORT).show()
         }
     }
 

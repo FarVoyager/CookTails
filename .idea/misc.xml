@@ -3,12 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidStudioProjects/CookTails/app/src/main/res/layout-v26/fragment_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudioProjects/CookTails/app/src/main/res/layout-v26/fragment_main.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/CookTails/app/src/main/res/layout-v28/fragment_details.xml" value="0.24010416666666667" />
         <entry key="..\:/AndroidStudioProjects/CookTails/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/AndroidStudioProjects/CookTails/app/src/main/res/layout/fragment_details.xml" value="0.22604166666666667" />
         <entry key="..\:/AndroidStudioProjects/CookTails/app/src/main/res/layout/fragment_main.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/CookTails/app/src/main/res/layout/recycler_view_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android_SDK/platforms/android-30/data/res/layout/auto_complete_list.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
