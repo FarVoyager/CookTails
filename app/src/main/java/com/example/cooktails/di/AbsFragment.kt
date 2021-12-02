@@ -3,6 +3,7 @@ package com.example.cooktails.di
 import android.content.Context
 import android.widget.ImageView
 import androidx.annotation.LayoutRes
+import com.example.cooktails.mainFragment.SearchQueryValidator
 import com.example.cooktails.screens.AndroidScreens
 import com.example.cooktails.view.glide.GlideImageLoader
 import com.example.cooktails.view.glide.IImageLoader
@@ -26,6 +27,8 @@ abstract class AbsFragment(@LayoutRes contentLayoutId: Int): MvpAppCompatFragmen
     lateinit var androidScreens: AndroidScreens
     @Inject
     lateinit var scheduler: Scheduler
+    @Inject
+    lateinit var searchQueryValidator: SearchQueryValidator
 
     @Inject
     lateinit var glideImageLoader: IImageLoader<ImageView>

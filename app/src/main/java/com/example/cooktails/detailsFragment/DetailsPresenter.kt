@@ -25,7 +25,7 @@ class DetailsPresenter(
         viewState.showMeasures(getMeasuresOfCocktail(cocktail))
     }
 
-    private fun getIngredientsOfCocktail(cocktail: Cocktail): List<String> {
+    fun getIngredientsOfCocktail(cocktail: Cocktail): List<String> {
         val listOfIngredients = mutableListOf<String>()
 
         fun addIngredientToList(ingredient: String?) {
